@@ -13,17 +13,20 @@ def run_bot():
         api_hash=Info.API_HASH,
         bot_token=Info.BOT_TOKEN
     )
+    print("✅ Telegram bot is starting...")
     app.run()
 
 def run_server():
-    server.app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+    port = int(os.environ.get("PORT", 10000))
+    print(f"✅ Web server running on port {port}")
+    server.app.run(host="0.0.0.0", port=port)
 
 if __name__ == "__main__":
-    p1 = Process(target=run_bot)
-    p2 = Process(target=run_server)
+    t1 = threading.Thread(target=run_bot)
+    t2 = threading.Thread(target=run_server)
 
-    p1.start()
-    p2.start()
+    t1.start()
+    t2.start()
 
-    p1.join()
-    p2.join()
+    t1.join()
+    t2.join()
