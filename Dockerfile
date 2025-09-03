@@ -7,4 +7,5 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+# Render will auto-detect PORT
 CMD ["python", "main.py"]
