@@ -4,3 +4,4 @@ pymongo
 ffmpeg-python
 hachoir
 flask
+gunicorn
