@@ -5,6 +5,8 @@ from Info import Info
 import handlers.caption
 import handlers.buttons
 import server
+import logging
+logging.basicConfig(level=logging.INFO)
 
 def run_bot():
     app = Client(
